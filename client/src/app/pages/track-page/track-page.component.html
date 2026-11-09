@@ -6,14 +6,14 @@
       <p>
         <!--TODO: link to album page, display album name-->
         Track on
-        <a [href]="track.album.url" target="_blank">{{ track.album.name }}</a>
+        <a [href]="'album/' + track.album.id">{{ track.album.name }}</a>
       </p>
       <div>
         <!--TODO: loop over track's artists-->
         @for (artist of track.artists; track artist) {
           <p>
             <!--TODO: link to artist page, display artist name-->
-            Artist: <a [href]="artist.url" target="_blank">{{ artist.name }}</a>
+            Artist: <a [href]="'artist/' + artist.id">{{ artist.name }}</a>
           </p>
         }
       </div>
