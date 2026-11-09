@@ -62,31 +62,49 @@ export class SpotifyService {
   getArtist(artistId: string): Promise<ArtistData> {
     //TODO: use the artist endpoint to make a request to express.
     //Again, you may need to encode the artistId.
-    return null as any;
+    const endpoint = `/artist/${encodeURIComponent(artistId)}`;
+    return this.sendRequestToExpress(endpoint).then((response) => {
+      return new ArtistData(response);
+    });
   }
 
   getTopTracksForArtist(artistId: string): Promise<TrackData[]> {
     //TODO: use the top tracks endpoint to make a request to express.
-    return null as any;
+    const endpoint = `/artist-top-tracks/${encodeURIComponent(artistId)}`;
+    return this.sendRequestToExpress(endpoint).then((response) => {
+      return response.tracks.map((item) => new TrackData(item));
+    });
   }
 
   getAlbumsForArtist(artistId: string): Promise<AlbumData[]> {
     //TODO: use the albums for an artist endpoint to make a request to express.
-    return null as any;
+    const endpoint = `/artist-albums/${encodeURIComponent(artistId)}`;
+    return this.sendRequestToExpress(endpoint).then((response) =>
+      response.items.map((album) => new AlbumData(album)),
+    );
   }
 
   getAlbum(albumId: string): Promise<AlbumData> {
     //TODO: use the album endpoint to make a request to express.
-    return null as any;
+    const endpoint = `/album/${encodeURIComponent(albumId)}`;
+    return this.sendRequestToExpress(endpoint).then(
+      (response) => new AlbumData(response),
+    );
   }
 
   getTracksForAlbum(albumId: string): Promise<TrackData[]> {
     //TODO: use the tracks for album endpoint to make a request to express.
-    return null as any;
+    const endpoint = `/album-tracks/${encodeURIComponent(albumId)}`;
+    return this.sendRequestToExpress(endpoint).then((response) => {
+      return response.items.map((track) => new TrackData(track));
+    });
   }
 
   getTrack(trackId: string): Promise<TrackData> {
     //TODO: use the track endpoint to make a request to express.
-    return null as any;
+    const endpoint = `/track/${encodeURIComponent(trackId)}`;
+    return this.sendRequestToExpress(endpoint).then(
+      (response) => new TrackData(response),
+    );
   }
 }

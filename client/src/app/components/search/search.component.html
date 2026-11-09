@@ -15,15 +15,7 @@
 <!--TODO: Display a carousel component if searching for an artist or album. Bind carousel's 
 resources and give it a static carouselId.-->
 
-<!--TODO: Display a track-list component if searching for a track. Bind track-list's tracks.
-The track list is implemented in the track-list component. Edit the 
-component to display each track in the response as a row in the 
-component's table, displaying the track's index, name, duration, artist, 
-and album. The component should support hiding the artist and/or album 
-columns for the track when the hideArtist or hideAlbum variables are true.
-
-
--->
+<!--TODO: Display a track-list component if searching for a track. Bind track-list's tracks.-->
 
 @if (searchCategory === "artist" || searchCategory === "album") {
   <app-carousel [resources]="resources" carouselId="staticId"></app-carousel>
