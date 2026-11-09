@@ -1,12 +1,32 @@
 <h1>Search Spotify</h1>
 <!--TODO: bind input's model to searchString-->
-<input>
+<input [(ngModel)]="searchString" />
 <!--TODO: bind select's model to searchCategory-->
-<select>
-	<!--TODO: loop over searchCategories to create dropdown options-->
-	<!--populate body and text value https://www.w3schools.com/tags/att_option_selected.asp-->
+<select [(ngModel)]="searchCategory">
+  <!--TODO: loop over searchCategories to create dropdown options-->
+  <!--populate body and text value https://www.w3schools.com/tags/att_option_selected.asp-->
+
+  @for (category of searchCategories; track category) {
+    <option [value]="category">{{ category }}</option>
+  }
 </select>
 <!--TODO: Call search function when the button is clicked-->
-<button class="btn btn-light">Search</button>
-<!--TODO: Display a carousel component if searching for an artist or album. Bind carousel's resources and give it a static carouselId.-->
-<!--TODO: Display a track-list component if searching for a track. Bind track-list's tracks.-->
+<button (click)="search()" class="btn btn-light">Search</button>
+<!--TODO: Display a carousel component if searching for an artist or album. Bind carousel's 
+resources and give it a static carouselId.-->
+
+<!--TODO: Display a track-list component if searching for a track. Bind track-list's tracks.
+The track list is implemented in the track-list component. Edit the 
+component to display each track in the response as a row in the 
+component's table, displaying the track's index, name, duration, artist, 
+and album. The component should support hiding the artist and/or album 
+columns for the track when the hideArtist or hideAlbum variables are true.
+
+
+-->
+
+@if (searchCategory === "artist" || searchCategory === "album") {
+  <app-carousel [resources]="resources" carouselId="staticId"></app-carousel>
+} @else if (searchCategory === "track") {
+  <app-track-list [tracks]="resources"></app-track-list>
+}
