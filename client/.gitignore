@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+dummy_webserver/
 
 # IDEs and editors
 /.idea

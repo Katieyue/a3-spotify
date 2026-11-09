@@ -1,4 +1,4 @@
---Readme document for *Katie Yue*, *kyue4@uci.edu* A3 Pair 20--
+--Readme document for *Katie Yue*, *kyue4@uci.edu* A3 Pair 20 A3 Pair 20--
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
